@@ -4,6 +4,21 @@
   font-family: 'Karla', sans-serif;
 }
 
+button {
+  all: initial;
+  cursor: pointer;
+  font-family: 'Karla', sans-serif;
+  color: white;
+  font-weight: bold;
+  letter-spacing: -0.1rem;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.purple--gradient {
+  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+}
+
 header {
   height: 7vh;
 
@@ -11,8 +26,6 @@ header {
   align-items: center;
   justify-content: center;
   gap: 10px;
-
-  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
 }
 
 .logo {
@@ -24,3 +37,37 @@ header {
   color: white;
 }
 
+main {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.input--wrapper {
+  display: flex;
+  gap: 16px;
+}
+
+form input {
+  width: 230px;
+  height: 35px;
+  font-size: 0.75rem;
+  text-indent: 2ch;
+  border: 1px solid gray;
+  border-radius: 8px;
+  font-family: 'Karla', sans-serif;
+}
+
+.new-image-button {
+  height: 40px;
+}
