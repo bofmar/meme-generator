@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header>
       <img src={logo} alt='site logo' className='logo' />
-      <h1 className='header--name'>Meme Generator</h1>
+      <h1 className='header--title'>Meme Generator</h1>
     </header>
   );
 }
