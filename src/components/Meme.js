@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Form from './Form';
 
 export default function Meme() {
   const [meme, setMeme] = useState({
@@ -20,13 +21,7 @@ export default function Meme() {
 
   return (
     <main>
-      <form>
-        <div class='input--wrapper'>
-          <input type='text' placeholder='Top text' className='top--text' />
-          <input type='text' placeholder='Bottom text' className='bottom--text' />
-        </div>
-        <button class='purple--gradient new--image--button' onClick={getRandomImage}>Get a new image</button>
-      </form>
+      <Form getRandomImage={getRandomImage} />
       <img src={meme.randomImage} className='meme--image' />
     </main>
   );
