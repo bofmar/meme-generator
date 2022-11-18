@@ -20,10 +20,11 @@ export default function Meme() {
   }
 
   function handleChange(e) {
+    const { name, value } = e.target;
     setMeme(prevMeme => {
       return {
         ...prevMeme,
-        [e.target.name]: e.target.value
+        [name]: value
       }
     })
   }
