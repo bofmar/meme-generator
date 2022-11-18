@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Form from './Form';
+import exportAsImage from '../utils/exportAsImage';
 
 export default function Meme() {
+  const exportRef = useRef();
+
   const [meme, setMeme] = useState({
     topText: '',
     bottomText: '',
@@ -45,8 +48,8 @@ export default function Meme() {
 
   return (
     <main>
-      <Form getRandomImage={getRandomImage} handleChange={handleChange} topText={meme.topText} bottomText={meme.bottomText} />
-      <div className='meme'>
+      <Form getRandomImage={getRandomImage} handleChange={handleChange} topText={meme.topText} bottomText={meme.bottomText} exportAsImage={exportAsImage} exportRef={exportRef} />
+      <div className='meme' ref={exportRef}>
         <img src={meme.randomImage} className='meme--image' />
         <h2 className="meme--text top">{meme.topText}</h2>
         <h2 className="meme--text bottom">{meme.bottomText}</h2>
