@@ -11,9 +11,12 @@ export default function Meme() {
   const [allMemes, setAllMemes] = useState([]);
 
   useEffect(() => {
-    fetch('https://api.imgflip.com/get_memes')
-      .then(response => response.json())
-      .then(data => setAllMemes(data.data.memes))
+    (async function getMemes() {
+      const response = await fetch('https://api.imgflip.com/get_memes');
+      const data = await response.json();
+      setAllMemes(data.data.memes)
+    })();
+
   }, []);
 
   function getRandomNumber() {
