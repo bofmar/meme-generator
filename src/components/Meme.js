@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Form from './Form';
 
 export default function Meme() {
@@ -10,13 +10,24 @@ export default function Meme() {
 
   const [allMemes, setAllMemes] = useState([]);
 
+  useEffect(() => {
+    fetch('https://api.imgflip.com/get_memes')
+      .then(response => response.json())
+      .then(data => setAllMemes(data.data.memes))
+  }, []);
+
   function getRandomNumber() {
     return Math.floor(Math.random() * allMemes.length);
   }
 
   function getRandomImage(e) {
     e.preventDefault();
-    window.alert('Yay');
+    setMeme(prevMeme => {
+      return {
+        ...prevMeme,
+        randomImage: allMemes[getRandomNumber()].url
+      }
+    });
   }
 
   function handleChange(e) {
