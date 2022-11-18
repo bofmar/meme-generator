@@ -10,6 +10,8 @@ export default function Meme() {
 
   const [allMemes, setAllMemes] = useState([]);
 
+  console.log(meme);
+
   function getRandomNumber() {
     return Math.floor(Math.random() * allMemes.length);
   }
@@ -19,9 +21,18 @@ export default function Meme() {
     window.alert('Yay');
   }
 
+  function handleChange(e) {
+    setMeme(prevMeme => {
+      return {
+        ...prevMeme,
+        [e.target.name]: e.target.value
+      }
+    })
+  }
+
   return (
     <main>
-      <Form getRandomImage={getRandomImage} />
+      <Form getRandomImage={getRandomImage} handleChange={handleChange} topText={meme.topText} bottomText={meme.bottomText} />
       <img src={meme.randomImage} className='meme--image' />
     </main>
   );
